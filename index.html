@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vastar.ai: Your All-In-One AI Productivity Partner</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased">
+    <div id="mouse-spotlight"></div>
+
+  <div id="preloader">
+    <div class="preloader-logo w-16 h-16 rounded-lg flex items-center justify-center">
+        <img src="assets/logo-vastar.png" alt="Vastar.ai Loading Logo" class="w-12 h-12 object-contain">
+    </div>
+</div>
+
+<div class="fixed top-5 left-0 right-0 z-50 flex justify-center items-center gap-4 px-4"> <nav class="floating-island flex items-center gap-8 py-3 px-6"> <a href="#" class="flex items-center space-x-2">
+<div class="w-10 h-10 flex items-center justify-center">
+    <img src="assets/logo-vastar.png" alt="Vastar.ai Logo" class="h-full w-full object-contain">
+</div>
+            <span class="text-xl font-bold text-white hidden sm:inline">Vastar.ai</span>
+        </a>
+        <div class="hidden md:flex items-center gap-8"> <a href="#features" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Features</a>
+            <a href="#pricing" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Pricing</a>
+            <a href="#use-cases" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Use Cases</a>
+            <a href="#contact" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Contact</a>
+        </div>
+         <div class="md:hidden">
+            <button id="mobile-menu-button" class="text-white">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+    <div class="floating-island hidden md:flex items-center gap-4 py-3 px-6"> <a href="#" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Log In</a> <a href="#" class="btn-primary px-5 py-2 text-white text-sm font-semibold rounded-full bg-gradient-to-r from-indigo-500 to-cyan-500"> Sign Up
+        </a>
+    </div>
+
+</div>
+
+
+    
+    <div id="mobile-menu" class="hidden md:hidden fixed top-0 left-0 w-full h-full bg-slate-950/95 backdrop-blur-lg z-40">
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="#features" class="mobile-menu-link text-2xl text-white">Features</a>
+            <a href="#pricing" class="mobile-menu-link text-2xl text-white">Pricing</a>
+            <a href="#use-cases" class="mobile-menu-link text-2xl text-white">Use Cases</a>
+            <a href="#agent-program" class="mobile-menu-link text-2xl text-white">Agent Program</a>
+            <a href="#blog" class="mobile-menu-link text-2xl text-white">Blog</a>
+            <a href="#contact" class="mobile-menu-link text-2xl text-white">Contact</a>
+            <a href="#" class="mt-4 px-8 py-3 text-white font-semibold rounded-lg bg-gradient-to-r from-indigo-500 to-cyan-500">
+                Sign Up Now
+            </a>
+        </div>
+    </div>
+
+
+    <main class="relative z-10">
+        <section class="pt-48 pb-50 text-center">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight animate-on-scroll">
+                        Vastar.ai: Your <span class="text-gradient">All-In-One AI</span> Productivity Partner
+                    </h1>
+                    <p class="mt-6 text-lg md:text-xl text-slate-400 max-w-3xl mx-auto animate-on-scroll stagger-1">
+                        Access leading multi-AI models like GPT-4o, Gemini 2.5 Pro, and Claude 3 within one intuitive platform. Complete your office tasks, college assignments, and creative projects faster and more efficiently than ever before.
+                    </p>
+                    <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4 animate-on-scroll stagger-2">
+                        <a href="https://stunning-blancmange-af1c45.netlify.app/" class="btn-primary w-full sm:w-auto px-8 py-4 text-white font-bold rounded-lg bg-gradient-to-r from-indigo-500 to-cyan-500">Web App</a>
+                        <a href="https://stunning-blancmange-af1c45.netlify.app/" class="w-full sm:w-auto px-8 py-4 text-white font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 transition-colors">Dekstop & Mobile App</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<section id="vastar-demo" class="py-20 sm:py-28 overflow-hidden relative">
+    <div class="container mx-auto px-4">
+        <div class="hidden md:flex justify-center relative h-[600px] lg:h-[700px] xl:h-[750px] max-w-[1200px] mx-auto px-8 animate-on-scroll stagger-2">
+            <img data-src="assets/desktop-main-mockup.png" alt="Vastar AI Desktop Base Demo" class="lazy absolute top-0 left-1/2 -translate-x-1/2 w-full h-full object-contain z-10" style="box-shadow: 0 40px 60px -25px rgba(0,0,0,0.5);">
+
+            <div class="absolute right-[-2.5%] top-[-6%] w-[280px] h-[620px] z-20 rounded-3xl overflow-hidden
+            transition-transform duration-300 ease-out mobile-mockup-center-hover"
+            style="box-shadow: 0 8px 24px rgba(0,0,0,0.25);">
+        <img src="assets/mobile.svg" alt="Vastar AI Mobile Demo on Desktop" class="w-full h-full object-cover">
+    </div>
+    
+        </div>
+
+        <div class="md:hidden flex justify-center relative w-full animate-on-scroll stagger-2">
+            <div class="w-2/3 max-w-[300px] h-auto mx-auto rounded-3xl overflow-hidden" style="box-shadow: 0 20px 40px -10px rgba(0,0,0,0.3);">
+                <img src="assets/mobile.svg" alt="Vastar AI Mobile Demo Standalone" class="w-full h-auto object-contain">
+            </div>
+        </div>
+    </div>
+</section>
+
+        <section id="features" class="py-24 bg-slate-900/50">
+            <div class="container mx-auto px-4">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white animate-on-scroll">Comprehensive Features for Every Need</h2>
+                    <p class="mt-4 text-slate-400 animate-on-scroll stagger-1">
+                        Vastar.ai is more than just another AI tool; it's an integrated productivity ecosystem designed to revolutionize how you work, learn, and create.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="glass-card p-8 rounded-2xl animate-on-scroll">
+                        <div class="w-12 h-12 bg-indigo-500/20 text-indigo-400 flex items-center justify-center rounded-lg mb-4">
+                            <i data-lucide="file-text"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Document Analysis (RAG)</h3>
+                        <p class="text-slate-400">Intelligently analyze documents. Chat with your files (PDF, DOCX), get automatic summaries, FAQs, and structured insights.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl animate-on-scroll stagger-1">
+                        <div class="w-12 h-12 bg-cyan-500/20 text-cyan-400 flex items-center justify-center rounded-lg mb-4">
+                            <i data-lucide="feather"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">AI Writing Assistant</h3>
+                        <p class="text-slate-400">Write faster and better. From first drafts to final polish, our AI assistant helps speed up and improve the quality of your writing.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl animate-on-scroll stagger-2">
+                        <div class="w-12 h-12 bg-emerald-500/20 text-emerald-400 flex items-center justify-center rounded-lg mb-4">
+                            <i data-lucide="mic"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Podcast Generator</h3>
+                        <p class="text-slate-400">Turn any source—documents, notes, or recordings—into smart, structured audio content with natural AI voices.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl animate-on-scroll">
+                        <div class="w-12 h-12 bg-rose-500/20 text-rose-400 flex items-center justify-center rounded-lg mb-4">
+                            <i data-lucide="notebook-tabs"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">AI Workspace Notes</h3>
+                        <p class="text-slate-400">A smart system to capture ideas effortlessly from voice, text, or images, and organize them automatically with summaries and tags.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl animate-on-scroll stagger-1">
+                        <div class="w-12 h-12 bg-amber-500/20 text-amber-400 flex items-center justify-center rounded-lg mb-4">
+                            <i data-lucide="cpu"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Multi-AI Models</h3>
+                        <p class="text-slate-400">Easily access the world's best AI models like GPT-4o, Gemini 2.5 Pro, and Claude 3, all within one platform.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl animate-on-scroll stagger-2">
+                         <div class="w-12 h-12 bg-violet-500/20 text-violet-400 flex items-center justify-center rounded-lg mb-4">
+                            <i data-lucide="users"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Real-Time Collaboration</h3>
+                        <p class="text-slate-400">Collaborate seamlessly with your team on documents, notes, and projects within the same intelligent workspace.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<section id="use-cases" class="py-24 bg-slate-900/50">
+            <div class="container mx-auto px-4">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white animate-on-scroll">Built for professionals.</h2>
+                </div>
+
+                <div class="flex justify-center flex-wrap gap-4 mb-12 animate-on-scroll stagger-1">
+                    <button class="flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/20 text-indigo-400 border border-indigo-400 text-sm font-medium">
+                        <i data-lucide="briefcase" class="w-4 h-4"></i> Entrepreneur
+                    </button>
+                    <button class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 text-slate-400 border border-slate-700 hover:bg-slate-700 hover:text-white transition text-sm font-medium">
+                        <i data-lucide="bar-chart-2" class="w-4 h-4"></i> Analyst
+                    </button>
+                    <button class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 text-slate-400 border border-slate-700 hover:bg-slate-700 hover:text-white transition text-sm font-medium">
+                        <i data-lucide="search" class="w-4 h-4"></i> Researcher
+                    </button>
+                    <button class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 text-slate-400 border border-slate-700 hover:bg-slate-700 hover:text-white transition text-sm font-medium">
+                        <i data-lucide="code-2" class="w-4 h-4"></i> Developer
+                    </button>
+                    <button class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 text-slate-400 border border-slate-700 hover:bg-slate-700 hover:text-white transition text-sm font-medium">
+                        <i data-lucide="megaphone" class="w-4 h-4"></i> Marketing
+                    </button>
+                     <button class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 text-slate-400 border border-slate-700 hover:bg-slate-700 hover:text-white transition text-sm font-medium">
+                        <i data-lucide="headset" class="w-4 h-4"></i> Customer Service
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <div class="glass-card p-8 rounded-2xl animate-on-scroll stagger-2">
+                        <div class="w-12 h-12 bg-purple-500/20 text-purple-400 flex items-center justify-center rounded-lg mb-4">
+                            <i data-lucide="compass" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Market intelligence navigator</h3>
+                        <p class="text-slate-400">Executes competitor analysis and tracks market trends to generate actionable reports.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl animate-on-scroll stagger-3">
+                        <div class="w-12 h-12 bg-indigo-500/20 text-indigo-400 flex items-center justify-center rounded-lg mb-4">
+                            <i data-lucide="trending-up" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Strategic thinking companion</h3>
+                        <p class="text-slate-400">Analyzes business challenges and identifies key information to generate strategic solutions.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl animate-on-scroll stagger-4">
+                        <div class="w-12 h-12 bg-teal-500/20 text-teal-400 flex items-center justify-center rounded-lg mb-4">
+                            <i data-lucide="book-text" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Smart document analyzer</h3>
+                        <p class="text-slate-400">Extracts key points from contracts and reports while highlighting critical details.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl animate-on-scroll stagger-5">
+                        <div class="w-12 h-12 bg-orange-500/20 text-orange-400 flex items-center justify-center rounded-lg mb-4">
+                            <i data-lucide="mail" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Context-aware email assistant</h3>
+                        <p class="text-slate-400">Extracts email essentials and generates contextual response suggestions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="py-24 bg-slate-900/50">
+            <div class="container mx-auto px-4">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white animate-on-scroll">Choose the Vastar.ai Plan That Fits Your Needs</h2>
+                    <p class="mt-4 text-slate-400 animate-on-scroll stagger-1">We offer a range of plans, from personal use to team and enterprise needs, all designed to deliver maximum value for your AI productivity journey.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 max-w-7xl mx-auto">
+                    <div class="glass-card p-6 rounded-2xl flex flex-col animate-on-scroll">
+                        <h3 class="text-lg font-bold text-gradient">Free Trial</h3>
+                        <p class="text-slate-400 text-sm mt-1">For a quick start</p>
+                        <div class="my-6">
+                            <span class="text-3xl font-extrabold text-white">Free</span>
+                        </div>
+                        <ul class="space-y-3 text-slate-300 text-sm flex-grow">
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mr-2"></i>5k Token Quota</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mr-2"></i>Basic AI Models</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mr-2"></i>Forum Support</li>
+                        </ul>
+                        <a href="#" class="mt-6 w-full text-center py-2.5 px-4 text-indigo-300 font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 transition-colors">Start Free Trial</a>
+                    </div>
+                    
+                    <div class="glass-card p-6 rounded-2xl flex flex-col animate-on-scroll stagger-1">
+                        <h3 class="text-lg font-bold text-gradient">Basic</h3>
+                        <p class="text-slate-400 text-sm mt-1">For personal use</p>
+                        <div class="my-6">
+                            <span class="text-3xl font-extrabold text-white">Rp 50k</span>
+                            <span class="text-slate-400 text-sm">/mo</span>
+                        </div>
+                        <ul class="space-y-3 text-slate-300 text-sm flex-grow">
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mr-2"></i>1M Token Quota</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mr-2"></i>Medium AI Models</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mr-2"></i>10MB RAG Cache</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mr-2"></i>Email Support</li>
+                        </ul>
+                        <a href="#" class="mt-6 w-full text-center py-2.5 px-4 text-indigo-300 font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 transition-colors">Choose Basic</a>
+                    </div>
+
+                    <div class="relative p-6 rounded-2xl flex flex-col bg-gradient-to-b from-indigo-600/60 to-slate-900/60 border border-indigo-500 animate-on-scroll stagger-2" style="transform: scale(1.05);">
+                        <div class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2">
+                            <div class="bg-indigo-500 text-white px-3 py-1 text-xs font-bold rounded-full shadow-lg shadow-indigo-500/30">MOST POPULAR</div>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Standard</h3>
+                        <p class="text-slate-300 text-sm mt-1">For professionals</p>
+                         <div class="my-6">
+                            <span class="text-3xl font-extrabold text-white">Rp 100k</span>
+                            <span class="text-slate-300 text-sm">/mo</span>
+                        </div>
+                        <ul class="space-y-3 text-slate-200 text-sm flex-grow">
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-300 mr-2"></i>1M Token Quota</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-300 mr-2"></i>Wide AI Models</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-300 mr-2"></i>100MB RAG Cache</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-300 mr-2"></i>Full Collaboration</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-300 mr-2"></i>Priority Chat/Email Support</li>
+                        </ul>
+                        <a href="#" class="btn-primary mt-6 w-full text-center py-2.5 px-4 text-white font-semibold rounded-lg bg-white/10 hover:bg-white/20">Choose Standard</a>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl flex flex-col animate-on-scroll stagger-3">
+                        <h3 class="text-lg font-bold text-gradient">Advanced</h3>
+                        <p class="text-slate-400 text-sm mt-1">For power users</p>
+                        <div class="my-6">
+                            <span class="text-3xl font-extrabold text-white">Rp 200k</span>
+                            <span class="text-slate-400 text-sm">/mo</span>
+                        </div>
+                        <ul class="space-y-3 text-slate-300 text-sm flex-grow">
+                           <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mr-2"></i>1.5M Token Quota</li>
+                           <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mr-2"></i>Top AI Models</li>
+                           <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mr-2"></i>Advanced Podcast Quality</li>
+                           <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mr-2"></i>Priority Phone Support</li>
+                        </ul>
+                        <a href="#" class="mt-6 w-full text-center py-2.5 px-4 text-indigo-300 font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 transition-colors">Choose Advanced</a>
+                    </div>
+                    
+                    <div class="glass-card p-6 rounded-2xl flex flex-col animate-on-scroll stagger-4">
+                        <h3 class="text-lg font-bold text-gradient">PAYG</h3>
+                        <p class="text-slate-400 text-sm mt-1">For custom needs</p>
+                        <div class="my-6">
+                            <span class="text-3xl font-extrabold text-white">Usage-Based</span>
+                        </div>
+                        <ul class="space-y-3 text-slate-300 text-sm flex-grow">
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mr-2"></i>All AI Models</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mr-2"></i>RAG Pro Access</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mr-2"></i>Full Marketplace Access</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mr-2"></i>Priority Assistance</li>
+                        </ul>
+                        <a href="#" class="mt-6 w-full text-center py-2.5 px-4 text-indigo-300 font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 transition-colors">Contact Sales</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="py-24">
+            <div class="container mx-auto px-4 max-w-3xl">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white animate-on-scroll">Frequently Asked Questions</h2>
+                </div>
+                <div class="space-y-4 animate-on-scroll">
+                    <div class="faq-item bg-slate-900 border border-slate-800 rounded-lg overflow-hidden">
+                        <div class="faq-question p-6 flex justify-between items-center">
+                            <h3 class="font-semibold text-lg text-white">What is Vastar.ai?</h3>
+                            <i data-lucide="chevron-down" class="faq-icon transition-transform duration-300"></i>
+                        </div>
+                        <div class="faq-answer text-slate-400">
+                            <p>Vastar.ai is an All-In-One AI Productivity Partner designed to help professionals, students, and creators complete their tasks more efficiently. It integrates leading AI models like GPT-4o, Gemini, and Claude into one platform with features for writing, document analysis, podcasting, and more.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item bg-slate-900 border border-slate-800 rounded-lg overflow-hidden">
+                        <div class="faq-question p-6 flex justify-between items-center">
+                            <h3 class="font-semibold text-lg text-white">Who is Vastar.ai for?</h3>
+                            <i data-lucide="chevron-down" class="faq-icon transition-transform duration-300"></i>
+                        </div>
+                        <div class="faq-answer text-slate-400">
+                            <p>Vastar.ai is built for a wide range of users in Indonesia, including professionals who need to draft reports, students working on assignments, and content creators developing new material. Essentially, it's for anyone looking to boost their productivity with AI.</p>
+                        </div>
+                    </div>
+                     <div class="faq-item bg-slate-900 border border-slate-800 rounded-lg overflow-hidden">
+                        <div class="faq-question p-6 flex justify-between items-center">
+                            <h3 class="font-semibold text-lg text-white">Can I use my own documents with the AI?</h3>
+                            <i data-lucide="chevron-down" class="faq-icon transition-transform duration-300"></i>
+                        </div>
+                        <div class="faq-answer text-slate-400">
+                            <p>Absolutely. Our Document Analysis (RAG) feature allows you to upload your files (like PDF, DOCX) and interact with them. You can ask questions about the content, generate summaries, create FAQs, and extract key information securely.</p>
+                        </div>
+                    </div>
+                     <div class="faq-item bg-slate-900 border border-slate-800 rounded-lg overflow-hidden">
+                        <div class="faq-question p-6 flex justify-between items-center">
+                            <h3 class="font-semibold text-lg text-white">What happens if I exceed my monthly token quota?</h3>
+                            <i data-lucide="chevron-down" class="faq-icon transition-transform duration-300"></i>
+                        </div>
+                        <div class="faq-answer text-slate-400">
+                            <p>We have a Fair Usage Policy in place. Depending on your plan, exceeding the quota may lead to reduced speeds or the option to purchase additional token packs. The PAYG (Pay-As-You-Go) plan is also available for users with variable or high-volume needs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="bg-slate-900 border-t border-slate-800">
+        <div class="container mx-auto px-4 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="lg:col-span-1">
+                    <a href="#" class="flex items-center space-x-2 mb-4">
+<div class="w-10 h-10 flex items-center justify-center">
+    <img src="assets/logo-vastar.png" alt="Vastar.ai Logo" class="h-full w-full object-contain">
+</div>
+                        <span class="text-2xl font-bold text-white">Vastar.ai</span>
+                    </a>
+                    <p class="text-slate-400 mt-4">An integrated productivity ecosystem designed to revolutionize how you work, learn, and create.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Product</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#features" class="text-slate-400 hover:text-cyan-400 transition">Features</a></li>
+                        <li><a href="#pricing" class="text-slate-400 hover:text-cyan-400 transition">Pricing</a></li>
+                        <li><a href="#use-cases" class="text-slate-400 hover:text-cyan-400 transition">Use Cases</a></li>
+                        <li><a href="#agent-program" class="text-slate-400 hover:text-cyan-400 transition">Agent Program</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Resources</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-slate-400 hover:text-cyan-400 transition">Blog</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-cyan-400 transition">Documentation</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-cyan-400 transition">System Status</a></li>
+                    </ul>
+                </div>
+                 <div>
+                    <h4 class="font-semibold text-white mb-4">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-slate-400 hover:text-cyan-400 transition">About Us</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-cyan-400 transition">Contact</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-cyan-400 transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-16 pt-8 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center">
+                <p class="text-slate-500 text-sm">© 2025 Vastar.ai (PT RMS). All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 sm:mt-0">
+                    <a href="#" class="text-slate-500 hover:text-white transition-colors"><i data-lucide="twitter"></i></a>
+                    <a href="#" class="text-slate-500 hover:text-white transition-colors"><i data-lucide="github"></i></a>
+                    <a href="#" class="text-slate-500 hover:text-white transition-colors"><i data-lucide="linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

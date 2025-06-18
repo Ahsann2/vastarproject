@@ -1,0 +1,205 @@
+/* [1] KONFIGURASI DASAR & FONT */
+:root {
+    --bg-color: #020617; /* slate-950 */
+    --text-color: #e2e8f0; /* slate-200 */
+    --text-muted-color: #94a3b8; /* slate-400 */
+    --border-color: rgba(30, 41, 59, 0.5); /* slate-800/50 */
+    --brand-gradient: linear-gradient(90deg, #818cf8, #38bdf8);
+    --brand-indigo: #4f46e5;
+    --brand-cyan: #0e7490;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+    overflow-x: hidden;
+
+    /* ▼▼▼ GUNAKAN KODE LATAR BELAKANG INI ▼▼▼ */
+    background-color: var(--bg-color);
+    background-image: 
+        /* Garis Horizontal */
+        repeating-linear-gradient(0deg,   rgba(156, 163, 175, 0.04), rgba(156, 163, 175, 0.04) 1px, transparent 1px, transparent 40px),
+        /* Garis Diagonal 1 */
+        repeating-linear-gradient(60deg,  rgba(156, 163, 175, 0.04), rgba(156, 163, 175, 0.04) 1px, transparent 1px, transparent 40px),
+        /* Garis Diagonal 2 */
+        repeating-linear-gradient(120deg, rgba(156, 163, 175, 0.04), rgba(156, 163, 175, 0.04) 1px, transparent 1px, transparent 40px);
+}
+
+/* [2] DEKORASI (REMOVED CANVAS) */
+
+/* [3] EFEK & GAYA UTAMA */
+.text-gradient {
+    background: var(--brand-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.glass-card {
+    background: rgba(15, 23, 42, 0.6); /* slate-900/60 */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+.glass-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(56, 189, 248, 0.4); /* cyan-400/40 */
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+}
+
+/* [4] ANIMASI SCROLL */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    will-change: opacity, transform;
+}
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation delay */
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+
+/* [5] KOMPONEN UI SPESIFIK */
+/* Header */
+#header.scrolled {
+    background-color: rgba(2, 6, 23, 0.8); /* slate-950/80 */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom-color: var(--border-color);
+}
+
+/* Tombol */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -10px rgba(129, 140, 248, 0.4);
+}
+
+/* FAQ Accordion */
+.faq-question {
+    cursor: pointer;
+}
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0.23, 1, 0.32, 1), padding 0.6s ease;
+    padding: 0 1.5rem;
+}
+.faq-item.open .faq-answer {
+    padding: 0 1.5rem 1.5rem;
+}
+.faq-item.open .faq-icon {
+    transform: rotate(180deg);
+}
+
+/* Preloader */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-color);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s ease;
+}
+#preloader.loaded {
+    opacity: 0;
+    pointer-events: none;
+}
+.preloader-logo {
+    animation: pulse 2s infinite ease-in-out;
+}
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(0.95); }
+}
+
+
+/* [1] GAYA UTAMA UNTUK 'PULAU' */
+/* Ini adalah kelas kunci yang membuat efek melayang, bentuk kapsul, dan latar belakang kaca. */
+.floating-island {
+    /* Tampilan & Efek */
+    background: rgba(2, 6, 23, 0.5); 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); 
+    border: 1px solid rgba(51, 65, 85, 0.7);
+    border-radius: 9999px; 
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+
+    /* Jarak di dalam (padding) */
+    padding: 8px;
+    padding-left: 12px;
+    padding-right: 16px;
+
+    /* Animasi */
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* [2] GAYA UNTUK TOMBOL UTAMA (SIGN UP) */
+/* Ini adalah kelas yang sudah ada, digunakan untuk tombol dengan gradien. */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -10px rgba(129, 140, 248, 0.4);
+}
+
+
+/* [3] GAYA SPESIFIK UNTUK LINK DI DALAM NAVBAR */
+/* Ini untuk memberikan efek hover pada link teks biasa seperti "Features", "Pricing", dll. */
+.floating-island a.text-slate-300 {
+    transition: color 0.2s ease-in-out;
+}
+
+.floating-island a.text-slate-300:hover {
+    color: white; /* Mengubah warna teks menjadi putih saat disentuh mouse */
+}
+
+/* [7] EFEK SPOTLIGHT INTERAKTIF UNTUK MOUSE */
+
+#mouse-spotlight {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    
+    background: radial-gradient(
+        circle,
+        rgba(49, 46, 229, 0.15) 0%,
+        rgba(2, 6, 23, 0) 70%
+    );
+
+    filter: blur(80px);
+    pointer-events: none; 
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: transform 0.2s ease-out, opacity 0.4s ease;
+    z-index: -1;
+}
+
+/* Custom hover effect: move to center and enlarge */
+.mobile-mockup-center-hover:hover {
+    transform: scale(1.08); /* Cukup membesar di tempat (105% dari ukuran asli) */
+}
