@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Vastar.ai</title>
+    
+    <!-- Menggunakan Aset dari Proyek Asli Anda -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Menggunakan Stylesheet Asli Anda -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Gaya tambahan khusus untuk halaman harga -->
+    <style>
+        .billing-toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        .billing-toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #1e293b; /* Warna slate-800 dari Tailwind */
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #4f46e5; /* Warna indigo-600 */
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        .plan-feature-category {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted-color);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 1.75rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.75rem;
+        }
+        .plan-feature-item {
+            display: flex;
+            align-items: flex-start; /* Mengubah align agar teks panjang tetap rapi */
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+        .plan-feature-item i {
+            width: 16px;
+            height: 16px;
+            color: #22d3ee; /* Warna cyan-400 */
+            flex-shrink: 0; /* Mencegah ikon menyusut */
+            margin-top: 3px; /* Penyesuaian posisi vertikal */
+        }
+        /* Gaya untuk animasi popup */
+#promo-modal-overlay {
+    transition: opacity 0.3s ease-in-out;
+}
+#promo-modal-content {
+    transform: scale(0.95);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+#promo-modal-overlay.visible {
+    opacity: 1;
+}
+#promo-modal-overlay.visible #promo-modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+    </style>
+</head>
+<body class="antialiased">
+
+    <div id="promo-modal-overlay" class="fixed inset-0 bg-slate-950/50 backdrop-blur-md z-[100] flex items-center justify-center p-4" style="display: none;">
+    <div id="promo-modal-content" class="relative w-full max-w-4xl bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <button id="close-modal-btn" class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors">
+            <i data-lucide="x" class="w-7 h-7"></i>
+        </button>
+
+        <div class="border-r border-slate-800 pr-8">
+            <h3 class="text-2xl font-bold text-white mb-4">Unlock All Features</h3>
+            <p class="text-slate-400 mb-6">Dapatkan semua fitur canggih yang Anda butuhkan untuk produktivitas maksimal.</p>
+            
+            <div class="space-y-4 text-sm">
+                <div>
+                    <h4 class="font-semibold text-slate-200 mb-2">AI Chat</h4>
+                    <div class="grid grid-cols-2 gap-x-4 gap-y-1 text-slate-400">
+                        <span class="flex items-center gap-2"><i data-lucide="sparkles" class="w-4 h-4 text-indigo-400"></i>Advanced model</span>
+                        <span class="flex items-center gap-2"><i data-lucide="search" class="w-4 h-4 text-indigo-400"></i>Internet search</span>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-slate-200 mb-2">AI Pictures & Videos</h4>
+                    <div class="grid grid-cols-2 gap-x-4 gap-y-1 text-slate-400">
+                        <span class="flex items-center gap-2"><i data-lucide="image" class="w-4 h-4 text-cyan-400"></i>Picture generation</span>
+                        <span class="flex items-center gap-2"><i data-lucide="video" class="w-4 h-4 text-cyan-400"></i>Video generation</span>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-slate-200 mb-2">AI Writing & Summary</h4>
+                    <div class="grid grid-cols-2 gap-x-4 gap-y-1 text-slate-400">
+                        <span class="flex items-center gap-2"><i data-lucide="pen-tool" class="w-4 h-4 text-emerald-400"></i>Smart writing</span>
+                        <span class="flex items-center gap-2"><i data-lucide="file-text" class="w-4 h-4 text-emerald-400"></i>File summary</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col">
+            <h3 class="text-2xl font-bold text-gradient">Standard Plan</h3>
+            <p class="text-slate-400 mb-4">Flash Sale! Dapatkan semua model & fitur canggih.</p>
+            
+            <ul class="space-y-3 text-slate-300 flex-grow">
+                <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-green-400"></i><span>Akses AI Chat Canggih (GPT-4o, Claude 3.5, Gemini Pro)</span></li>
+                <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-green-400"></i><span>AI Penghasil Gambar & Video (SD, Dall-E 3, Pika)</span></li>
+                <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-green-400"></i><span>Asisten AI Lintas Platform</span></li>
+                <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-green-400"></i><span>Integrasi Multi-Platform (Gmail, Slack, Office)</span></li>
+                <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-green-400"></i><span>Chat PDF & Ringkasan Web Tanpa Batas</span></li>
+            </ul>
+
+            <div class="mt-6 space-y-3">
+                <label class="block w-full p-4 border-2 border-indigo-500 bg-indigo-500/10 rounded-lg">
+                    <input type="radio" name="plan-option" class="hidden" checked>
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-white">Yearly</span>
+                        <span class="font-semibold text-white">Rp 400k <span class="text-sm font-normal text-slate-400">/year</span></span>
+                        <span class="px-2 py-0.5 text-xs font-bold text-emerald-300 bg-emerald-500/20 rounded-full">Save 25%</span>
+                    </div>
+                </label>
+                 <label class="block w-full p-4 border-2 border-slate-700 rounded-lg">
+                    <input type="radio" name="plan-option" class="hidden">
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-white">Monthly</span>
+                        <span class="font-semibold text-white">Rp 40k <span class="text-sm font-normal text-slate-400">/month</span></span>
+                    </div>
+                </label>
+            </div>
+
+            <a href="#" class="btn-primary mt-6 w-full text-center py-3 px-4 text-white font-bold rounded-lg bg-gradient-to-r from-indigo-500 to-cyan-500">
+                Upgrade Now
+            </a>
+        </div>
+    </div>
+</div>
+    <!-- Menggunakan semua elemen dari file asli Anda -->
+    <div id="mouse-spotlight"></div>
+    <div id="preloader">
+        <div class="preloader-logo w-16 h-16 rounded-lg flex items-center justify-center">
+            <img src="assets/logo-vastar.png" alt="Vastar.ai Loading Logo" class="w-12 h-12 object-contain">
+        </div>
+    </div>
+
+    <!-- Navigasi yang sama persis dengan index.html -->
+    <div class="fixed top-5 left-0 right-0 z-50 flex justify-center items-center gap-4 px-4">
+        <nav class="floating-island flex items-center gap-8 py-3 px-6">
+            <a href="index.html" class="flex items-center space-x-2">
+                <div class="w-10 h-10 flex items-center justify-center">
+                    <img src="assets/logo-vastar.png" alt="Vastar.ai Logo" class="h-full w-full object-contain">
+                </div>
+                <span class="text-xl font-bold text-white hidden sm:inline">Vastar.ai</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="index.html#features" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Features</a>
+                <a href="pricing.html" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Pricing</a>
+                <a href="index.html#use-cases" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Use Cases</a>
+                <a href="index.html#contact" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </nav>
+        <div class="floating-island hidden md:flex items-center gap-4 py-3 px-6">
+            <a href="#" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Log In</a>
+            <a href="#" class="btn-primary px-5 py-2 text-white text-sm font-semibold rounded-full bg-gradient-to-r from-indigo-500 to-cyan-500">Sign Up</a>
+        </div>
+    </div>
+
+    <!-- Main Content untuk Halaman Harga -->
+    <main class="relative z-10">
+        <section id="pricing-page" class="pt-40 pb-24">
+            <div class="container mx-auto px-4">
+                <!-- Header -->
+                <div class="text-center max-w-3xl mx-auto mb-8 animate-on-scroll">
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-white">
+                        Plans for Every Need
+                    </h1>
+                    <p class="mt-4 text-lg text-slate-400 stagger-1">
+                        Start for free, or unlock advanced capabilities with our powerful plans.
+                    </p>
+                </div>
+
+                <!-- Toggle Tagihan -->
+                <div class="flex justify-center items-center gap-4 mb-12 animate-on-scroll stagger-2">
+                    <span id="monthly-label" class="font-semibold text-white">Monthly</span>
+                    <label class="billing-toggle-switch">
+                        <input type="checkbox" id="billing-toggle">
+                        <span class="slider"></span>
+                    </label>
+                    <span id="annual-label" class="font-semibold text-slate-400">Annual</span>
+                    <span class="ml-2 px-3 py-1 text-xs font-bold text-emerald-300 bg-emerald-500/20 rounded-full">Save 25%</span>
+                </div>
+
+                <!-- Kartu Harga -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                    <!-- FREE PLAN -->
+                    <div class="glass-card p-8 rounded-2xl flex flex-col h-full animate-on-scroll">
+                        <h3 class="text-2xl font-bold text-white">Free</h3>
+                        <p class="text-slate-400 mt-1">For individuals getting started.</p>
+                        <div class="my-8">
+                            <span class="text-5xl font-extrabold text-white">Rp 0</span>
+                        </div>
+                        <a href="#" class="w-full text-center py-3 px-4 text-white font-semibold rounded-lg bg-slate-700/80 border border-slate-600 hover:bg-slate-700 transition-colors">Current Subscription</a>
+                        <div class="mt-8 flex-grow">
+                            <p class="plan-feature-category">Akses Model AI Dasar</p>
+                            <div class="plan-feature-item"><i data-lucide="check-circle-2"></i><span>40 akses ke model dasar harian</span></div>
+
+                            <p class="plan-feature-category">Fitur Utama</p>
+                            <div class="plan-feature-item"><i data-lucide="check-circle-2"></i><span>Uji coba terbatas untuk Image/Video generation</span></div>
+                            <div class="plan-feature-item"><i data-lucide="check-circle-2"></i><span>Penulisan cerdas, terjemahan, dan ringkasan dasar</span></div>
+                            <div class="plan-feature-item"><i data-lucide="check-circle-2"></i><span>Uji coba terbatas untuk Analisis Dokumen (RAG)</span></div>
+                            
+                            <p class="plan-feature-category">Integrasi Aplikasi</p>
+                            <div class="plan-feature-item"><i data-lucide="check-circle-2"></i><span>Aplikasi Desktop & Mobile</span></div>
+                        </div>
+                    </div>
+
+                    <!-- STANDARD PLAN (Most Popular) -->
+                    <div class="relative p-8 rounded-2xl flex flex-col h-full bg-gradient-to-b from-indigo-600/50 to-slate-900/50 border-2 border-indigo-500 animate-on-scroll stagger-1" style="transform: scale(1.03);">
+                        <div class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2">
+                            <div class="bg-indigo-500 text-white px-4 py-1.5 text-sm font-bold rounded-full shadow-lg shadow-indigo-500/40">MOST POPULAR</div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white">Standard</h3>
+                        <p class="text-slate-300 mt-1">For professionals and power users.</p>
+                        <div class="my-8">
+                            <span class="text-5xl font-extrabold text-white" data-price-monthly="100k" data-price-annual="900k">Rp 100k</span>
+                            <span class="text-slate-300" data-period-monthly="/month" data-period-annual="/year">/month</span>
+                        </div>
+                        <a href="#" class="btn-primary w-full text-center py-3 px-4 text-white font-semibold rounded-lg bg-indigo-500 hover:bg-indigo-600 transition-all">Subscribe Now</a>
+                        <div class="mt-8 flex-grow">
+                            <p class="plan-feature-category">Akses Model AI Lanjutan</p>
+                            <div class="plan-feature-item"><i data-lucide="check-circle-2"></i><span>200 akses ke model lanjutan bulanan</span></div>
+                            
+                            <p class="plan-feature-category">Fitur Lanjutan</p>
+                            <div class="plan-feature-item"><i data-lucide="check-circle-2"></i><span>Penulisan cerdas, terjemahan, dan ringkasan lanjutan</span></div>
+                            <div class="plan-feature-item"><i data-lucide="check-circle-2"></i><span>Analisis Dokumen (RAG) Penuh</span></div>
+                            <div class="plan-feature-item"><i data-lucide="check-circle-2"></i><span><span class="font-bold">1.500</span> Vastar Token / VT</span></div>
+
+                            <p class="plan-feature-category">Integrasi Aplikasi</p>
+                            <div class="plan-feature-item"><i data-lucide="check-circle-2"></i><span>Aplikasi Desktop & Mobile</span></div>
+                        </div>
+                    </div>
+
+                    <!-- PRO PLAN -->
+                    <div class="glass-card p-8 rounded-2xl flex flex-col h-full animate-on-scroll stagger-2">
+                        <h3 class="text-2xl font-bold text-white">Pro</h3>
+                        <p class="text-slate-400 mt-1">For teams and enterprises.</p>
+                         <div class="my-8">
+                            <span class="text-5xl font-extrabold text-white" data-price-monthly="200k" data-price-annual="1.8jt">Rp 200k</span>
+                            <span class="text-slate-400" data-period-monthly="/month" data-period-annual="/year">/month</span>
+                        </div>
+                        <a href="#" class="w-full text-center py-3 px-4 text-white font-semibold rounded-lg bg-slate-700/80 border border-slate-600 hover:bg-slate-700 transition-colors">Subscribe Now</a>
+                        <div class="mt-8 flex-grow">
+                             <p class="plan-feature-category">Akses Tanpa Batas ke Model AI Teratas</p>
+                            <div class="plan-feature-item"><i data-lucide="check-circle-2"></i><span>Akses tanpa batas ke semua model AI tercanggih</span></div>
+
+                            <p class="plan-feature-category">Fitur Unggulan</p>
+                            <div class="plan-feature-item"><i data-lucide="check-circle-2"></i><span>Podcast Generator & Kolaborasi Real-Time</span></div>
+                            <div class="plan-feature-item"><i data-lucide="check-circle-2"></i><span>Image & Video Generation Penuh</span></div>
+                            <div class="plan-feature-item"><i data-lucide="check-circle-2"></i><span><span class="font-bold">4.500</span> Vastar Token / VT</span></div>
+
+                            <p class="plan-feature-category">Integrasi Aplikasi</p>
+                            <div class="plan-feature-item"><i data-lucide="check-circle-2"></i><span>Aplikasi Desktop & Mobile</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer yang sama persis dengan index.html -->
+    <footer class="bg-slate-900 border-t border-slate-800">
+        <div class="container mx-auto px-4 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="lg:col-span-1">
+                    <a href="#" class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 flex items-center justify-center">
+                            <img src="assets/logo-vastar.png" alt="Vastar.ai Logo" class="h-full w-full object-contain">
+                        </div>
+                        <span class="text-2xl font-bold text-white">Vastar.ai</span>
+                    </a>
+                    <p class="text-slate-400 mt-4">An integrated productivity ecosystem designed to revolutionize how you work, learn, and create.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Product</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html#features" class="text-slate-400 hover:text-cyan-400 transition">Features</a></li>
+                        <li><a href="pricing.html" class="text-slate-400 hover:text-cyan-400 transition">Pricing</a></li>
+                        <li><a href="index.html#use-cases" class="text-slate-400 hover:text-cyan-400 transition">Use Cases</a></li>
+                        <li><a href="#agent-program" class="text-slate-400 hover:text-cyan-400 transition">Agent Program</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Resources</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-slate-400 hover:text-cyan-400 transition">Blog</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-cyan-400 transition">Documentation</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-cyan-400 transition">System Status</a></li>
+                    </ul>
+                </div>
+                 <div>
+                    <h4 class="font-semibold text-white mb-4">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-slate-400 hover:text-cyan-400 transition">About Us</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-cyan-400 transition">Contact</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-cyan-400 transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-16 pt-8 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center">
+                <p class="text-slate-500 text-sm">© 2025 Vastar.ai (PT RMS). All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 sm:mt-0">
+                    <a href="#" class="text-slate-500 hover:text-white transition-colors"><i data-lucide="twitter"></i></a>
+                    <a href="#" class="text-slate-500 hover:text-white transition-colors"><i data-lucide="github"></i></a>
+                    <a href="#" class="text-slate-500 hover:text-white transition-colors"><i data-lucide="linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Menggunakan Skrip Asli Anda -->
+    <script src="script.js"></script>
+
+    <!-- Skrip tambahan khusus untuk halaman harga -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggle = document.getElementById('billing-toggle');
+            if (toggle) {
+                const monthlyLabel = document.getElementById('monthly-label');
+                const annualLabel = document.getElementById('annual-label');
+                const priceElements = document.querySelectorAll('[data-price-monthly]');
+                const periodElements = document.querySelectorAll('[data-period-monthly]');
+                // ▼▼▼ KODE UNTUK MENGONTROL POPUP ▼▼▼
+const modalOverlay = document.getElementById('promo-modal-overlay');
+const closeModalBtn = document.getElementById('close-modal-btn');
+const modalContent = document.getElementById('promo-modal-content');
+
+// Fungsi untuk menampilkan popup
+const showModal = () => {
+    modalOverlay.style.display = 'flex';
+    setTimeout(() => {
+        modalOverlay.classList.add('visible');
+    }, 50); // Delay kecil agar transisi terlihat
+};
+
+// Fungsi untuk menyembunyikan popup
+const hideModal = () => {
+    modalOverlay.classList.remove('visible');
+    setTimeout(() => {
+        modalOverlay.style.display = 'none';
+    }, 300); // Sesuaikan dengan durasi transisi CSS
+};
+
+// Tampilkan popup setelah 1.5 detik saat halaman dimuat
+setTimeout(showModal, 1500);
+
+// Event listener untuk tombol close
+closeModalBtn.addEventListener('click', hideModal);
+
+// Event listener untuk menutup saat klik di luar area modal
+modalOverlay.addEventListener('click', (event) => {
+    if (event.target === modalOverlay) {
+        hideModal();
+    }
+});
+
+                function updatePrices() {
+                    const isAnnual = toggle.checked;
+
+                    if (isAnnual) {
+                        annualLabel.classList.remove('text-slate-400');
+                        annualLabel.classList.add('text-white');
+                        monthlyLabel.classList.add('text-slate-400');
+                        monthlyLabel.classList.remove('text-white');
+                    } else {
+                        monthlyLabel.classList.remove('text-slate-400');
+                        monthlyLabel.classList.add('text-white');
+                        annualLabel.classList.add('text-slate-400');
+                        annualLabel.classList.remove('text-white');
+                    }
+
+                    priceElements.forEach(el => {
+                        el.innerText = isAnnual ? `Rp ${el.dataset.priceAnnual}` : `Rp ${el.dataset.priceMonthly}`;
+                    });
+
+                    periodElements.forEach(el => {
+                        el.innerText = isAnnual ? el.dataset.periodAnnual : el.dataset.periodMonthly;
+                    });
+                }
+
+                toggle.addEventListener('change', updatePrices);
+                updatePrices(); // Panggil saat memuat untuk status awal
+            }
+        });
+    </script>
+</body>
+</html>
