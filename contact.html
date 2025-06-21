@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Vastar.ai</title>
+    
+    <!-- Aset Pihak Ketiga -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Gaya Kustom untuk Halaman Kontak -->
+    <style>
+        /* [0] Pengaturan Dasar Halaman */
+        :root {
+            --bg-color: #020617;
+            --text-color: #e2e8f0;
+            --brand-indigo: #4f46e5;
+            --brand-cyan: #0891b2;
+            --highlight-color: #22d3ee;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            background-image: 
+                repeating-linear-gradient(0deg,   rgba(156, 163, 175, 0.04), rgba(156, 163, 175, 0.04) 1px, transparent 1px, transparent 40px),
+                repeating-linear-gradient(60deg,  rgba(156, 163, 175, 0.04), rgba(156, 163, 175, 0.04) 1px, transparent 1px, transparent 40px),
+                repeating-linear-gradient(120deg, rgba(156, 163, 175, 0.04), rgba(156, 163, 175, 0.04) 1px, transparent 1px, transparent 40px);
+        }
+
+        /* [1] Gaya Hero Section & Panel Kaca Interaktif */
+        #hero-container {
+            perspective: 1000px;
+        }
+
+        .highlight-text {
+            color: var(--highlight-color);
+            text-shadow: 0 0 25px rgba(34, 211, 238, 0.5);
+        }
+
+        .glowing-btn {
+            background-color: #0e7490; /* cyan-700 */
+            box-shadow: 0 0 15px 0 rgba(34, 211, 238, 0.4), 0 0 30px 0 rgba(34, 211, 238, 0.2);
+            transition: all 0.3s ease;
+        }
+        .glowing-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 0 25px 5px rgba(34, 211, 238, 0.6), 0 0 45px 5px rgba(34, 211, 238, 0.4);
+        }
+        
+        /* [2] Gaya Formulir & Info Kontak */
+        .contact-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(51, 65, 85, 0.5);
+        }
+        .form-input {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            color: var(--text-color);
+            transition: all 0.2s ease-in-out;
+        }
+        .form-input:focus {
+            background-color: #0f172a;
+            border-color: var(--brand-indigo);
+            box-shadow: none;
+            outline: none;
+            --tw-ring-color: var(--brand-indigo);
+        }
+        .info-card {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            transition: all 0.3s ease;
+        }
+        .info-card:hover {
+            background-color: #334155;
+            border-color: var(--brand-indigo);
+            transform: translateY(-5px);
+        }
+        .info-icon-wrapper {
+            background-color: #334155;
+            color: #818cf8;
+        }
+
+        /* [3] Gaya Navigasi (diambil dari style.css asli untuk konsistensi) */
+        .floating-island {
+            background: rgba(2, 6, 23, 0.6); 
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px); 
+            border: 1px solid rgba(51, 65, 85, 0.7);
+            border-radius: 9999px; 
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+            padding: 8px 12px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigasi -->
+    <div class="fixed top-5 left-0 right-0 z-50 flex justify-center items-center gap-4 px-4">
+        <nav class="floating-island flex items-center gap-8 py-3 px-6">
+            <a href="index.html" class="flex items-center space-x-2">
+                <div class="w-10 h-10 flex items-center justify-center">
+                    <img src="assets/logo-vastar.png" alt="Vastar.ai Logo" class="h-full w-full object-contain">
+                </div>
+                <span class="text-xl font-bold text-white hidden sm:inline">Vastar.ai</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="index.html#features" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Features</a>
+                <a href="pricing.html" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Pricing</a>
+                <a href="contact.html" class="text-white hover:text-white transition-colors text-sm font-bold">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white"><i data-lucide="menu"></i></button>
+            </div>
+        </nav>
+        <div class="floating-island hidden md:flex items-center gap-4 py-3 px-6">
+            <a href="#" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Log In</a>
+            <a href="#" class="btn-primary px-5 py-2 text-white text-sm font-semibold rounded-full bg-gradient-to-r from-indigo-500 to-cyan-500">Sign Up</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section Baru -->
+        <section class="min-h-screen flex items-center justify-center text-center px-4">
+    <div class="relative z-10">
+        <h1 class="text-6xl lg:text-8xl font-extrabold text-white tracking-tighter">
+            Let's Build The
+            <span class="highlight-text">Future.</span>
+        </h1>
+        <p class="mt-6 text-lg text-slate-300 max-w-2xl mx-auto">
+            Hubungi kami. Mari kita diskusikan bagaimana Vastar.ai dapat mengubah ide Anda menjadi kenyataan.
+        </p>
+        <div class="mt-10">
+            <a href="#contact-form" class="glowing-btn inline-block px-10 py-4 text-white font-bold rounded-lg text-lg transition-transform duration-300 hover:scale-105">
+                Mulai Percakapan
+            </a>
+        </div>
+    </div>
+</section>
+        
+        <!-- Formulir & Info Kontak -->
+        <section id="contact-form" class="py-24">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <div class="contact-card grid grid-cols-1 lg:grid-cols-5 gap-12 rounded-2xl p-10">
+                    <form class="space-y-6 lg:col-span-3">
+                        <h2 class="text-3xl font-bold text-white">Kirim Pesan Cepat</h2>
+                        <p class="text-slate-400">Tim kami akan merespons sesegera mungkin.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-slate-300 mb-2">Nama</label>
+                                <input type="text" id="name" class="form-input w-full px-4 py-3 rounded-md focus:ring-2">
+                            </div>
+                             <div>
+                                <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Email</label>
+                                <input type="email" id="email" class="form-input w-full px-4 py-3 rounded-md focus:ring-2">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-slate-300 mb-2">Subjek</label>
+                            <input type="text" id="subject" class="form-input w-full px-4 py-3 rounded-md focus:ring-2">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-slate-300 mb-2">Pesan Anda</label>
+                            <textarea id="message" rows="5" class="form-input w-full px-4 py-3 rounded-md focus:ring-2"></textarea>
+                        </div>
+                        <button type="submit" class="w-full glowing-btn py-3 text-white font-bold rounded-lg">Kirim</button>
+                    </form>
+                    
+                    <div class="space-y-8 lg:col-span-2">
+                         <h2 class="text-3xl font-bold text-white">Info Kontak</h2>
+                         <p class="text-slate-400">Atau hubungi kami langsung.</p>
+                         <div class="info-card p-4 rounded-lg">
+                             <div class="info-icon-wrapper p-3 rounded-md"><i data-lucide="mail"></i></div>
+                             <div>
+                                 <h4 class="font-semibold text-white">Email</h4>
+                                 <a href="mailto:contact@vastar.ai" class="text-slate-300 hover:text-indigo-400">contact@vastar.ai</a>
+                             </div>
+                         </div>
+                         <div class="info-card p-4 rounded-lg">
+                             <div class="info-icon-wrapper p-3 rounded-md"><i data-lucide="phone"></i></div>
+                             <div>
+                                 <h4 class="font-semibold text-white">Telepon</h4>
+                                 <p class="text-slate-300">(022) 123-4567</p>
+                             </div>
+                         </div>
+                         <div class="info-card p-4 rounded-lg">
+                             <div class="info-icon-wrapper p-3 rounded-md"><i data-lucide="map-pin"></i></div>
+                             <div>
+                                 <h4 class="font-semibold text-white">Alamat</h4>
+                                 <p class="text-slate-300">Jl. Teknologi No. 1, Bandung</p>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Skrip Interaktif -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+           
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
