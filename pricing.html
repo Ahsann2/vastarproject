@@ -97,12 +97,222 @@
     transform: scale(1);
     opacity: 1;
 }
+
+/* Gaya untuk Tabel Perbandingan */
+#plan-comparison-section.hidden {
+    display: none;
+}
+#plan-comparison-section table {
+    background: rgba(15, 23, 42, 0.6); /* slate-900/60 */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem; /* 12px */
+    overflow: hidden;
+}
+
+/* ▼▼▼ TAMBAHKAN GAYA INI DI AKHIR BLOK <style> ANDA ▼▼▼ */
+#wallet-container {
+    perspective: 1500px;
+    /* Memberi sedikit ruang agar kartu tidak terpotong saat keluar */
+    padding-top: 100px; 
+}
+
+.wallet {
+    width: 440px;
+    height: 280px;
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.wallet-front, .wallet-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #1a2233;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.wallet-front {
+    transform: translateZ(1px);
+    background-image: linear-gradient(145deg, #1e293b, #0f172a);
+}
+
+.wallet-back {
+    transform: translateZ(-1px);
+}
+
+.member-card {
+    position: absolute;
+    width: 240px;
+    height: 150px;
+    left: 20px;
+    top: 15px;
+    border-radius: 12px;
+    color: white;
+    padding: 20px;
+    font-family: 'Inter', sans-serif;
+    transform-style: preserve-3d;
+    transform-origin: bottom center;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+    overflow: hidden;
+}
+.card-chip {
+    width: 40px;
+    height: 30px;
+    background: #d4af37;
+    border-radius: 4px;
+    background-image: linear-gradient(45deg, #f0c040, #d4af37);
+}
+.card-logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+.card-plan {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+/* Desain Warna Kartu */
+.card-plus {
+    background-image: linear-gradient(45deg, #4f46e5, #7c3aed);
+    transform: translateZ(2px);
+}
+.card-pro {
+    background-image: linear-gradient(45deg, #059669, #0d9488);
+    transform: translateZ(3px);
+}
+.card-ultra {
+    background-image: linear-gradient(45deg, #1e293b, #334155);
+    transform: translateZ(4px);
+}
+
+
+/* State ketika Kursor Mendekat (dikontrol oleh JS) */
+#wallet-container.is-near .card-plus {
+    transform: translateY(-120%) rotate(-10deg) translateZ(30px);
+}
+#wallet-container.is-near .card-pro {
+    transform: translateY(-130%) rotate(0deg) translateZ(40px);
+}
+#wallet-container.is-near .card-ultra {
+    transform: translateY(-120%) rotate(10deg) translateZ(30px);
+}
+#interactive-card-container {
+    position: relative;
+    width: 440px;
+    height: 280px;
+    perspective: 2000px;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.showcase-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    color: white;
+    padding: 24px;
+    font-family: 'Inter', sans-serif;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+    overflow: hidden;
+}
+
+.card-border-glow {
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+    
+    /* Versi Webkit (untuk Chrome, Safari, dll.) */
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    
+    /* Versi Standar (untuk browser modern lainnya) */
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+}
+
+.card-logo {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+.card-plan {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    font-size: 1.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+/* Desain Kartu Depan (Utama) */
+.card-front {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    z-index: 10;
+}
+.card-logo-front {
+    font-size: 2rem;
+    font-weight: 900;
+    text-align: center;
+    margin-top: 1.5rem;
+    letter-spacing: 2px;
+}
+.card-chip-front {
+    width: 50px;
+    height: 40px;
+    background: linear-gradient(45deg, #f0c040, #d4af37);
+    border-radius: 6px;
+    margin-top: 1rem;
+}
+
+/* Desain Kartu Paket di Belakang */
+.card-plus { background-image: linear-gradient(45deg, #4f46e5, #7c3aed); }
+.card-pro { background-image: linear-gradient(45deg, #059669, #0d9488); }
+.card-ultra { background-image: linear-gradient(45deg, #334155, #1e293b); }
+
+
+/* State Animasi ketika Kursor Mendekat (dikontrol oleh JS) */
+#interactive-card-container.is-near .card-front {
+    transform: translateY(-50%) scale(0); /* Pindahkan lebih jauh & kecilkan */
+    opacity: 0; /* Jadikan sepenuhnya transparan (menghilangkan bayangan) */
+    pointer-events: none; /* Pastikan tidak bisa di-klik saat tersembunyi */
+}
+#interactive-card-container.is-near .card-plus {
+    transform: rotate(-8deg) translateY(-30px);
+}
+#interactive-card-container.is-near .card-pro {
+    transform: rotate(0deg) translateY(-50px);
+}
+#interactive-card-container.is-near .card-ultra {
+    transform: rotate(8deg) translateY(-30px);
+}
     </style>
 </head>
 <body class="antialiased">
 
-    <div id="promo-modal-overlay" class="fixed inset-0 bg-slate-950/50 backdrop-blur-md z-[100] flex items-center justify-center p-4" style="display: none;">
-    <div id="promo-modal-content" class="relative w-full max-w-4xl bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+   <div id="promo-modal-overlay" class="fixed inset-0 bg-slate-950/60 backdrop-blur-xl z-[100] flex items-center justify-center p-4" style="display: none;">
+    <div id="promo-modal-content" class="relative w-full max-w-4xl bg-slate-900/70 border border-white/20 rounded-2xl shadow-2xl p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
         <button id="close-modal-btn" class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors">
             <i data-lucide="x" class="w-7 h-7"></i>
         </button>
@@ -198,7 +408,7 @@
                 <a href="index.html#features" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Features</a>
                 <a href="pricing.html" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Pricing</a>
                 <a href="index.html#use-cases" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Use Cases</a>
-                <a href="index.html#contact" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Contact</a>
+                <a href="contact.html" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Contact</a>
             </div>
             <div class="md:hidden">
                 <button id="mobile-menu-button" class="text-white">
@@ -217,29 +427,50 @@
         <section id="pricing-page" class="pt-40 pb-24">
             <div class="container mx-auto px-4">
                 <!-- Header -->
-                <div class="text-center max-w-3xl mx-auto mb-8 animate-on-scroll">
-                    <h1 class="text-4xl md:text-5xl font-extrabold text-white">
-                        Plans for Every Need
-                    </h1>
-                    <p class="mt-4 text-lg text-slate-400 stagger-1">
-                        Start for free, or unlock advanced capabilities with our powerful plans.
-                    </p>
-                </div>
+                <!-- ▼▼▼ GANTI DENGAN KODE HERO SECTION DOMPET INTERAKTIF INI ▼▼▼ -->
+<div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 pt-12 pb-24 mb-16 max-w-6xl mx-auto">
+    <div class="animate-on-scroll text-center lg:text-left">
+        <h1 class="text-5xl lg:text-6xl font-extrabold text-white leading-tight">
+            Kartu Akses Anda Menuju <span class="text-gradient">AI Terbaik.</span>
+        </h1>
+        <p class="mt-6 text-lg text-slate-300 max-w-md mx-auto lg:mx-0">
+            Setiap kartu membuka level baru dari kekuatan AI. Dekati untuk melihat paket eksklusif yang kami tawarkan dan pilih yang paling sesuai untuk Anda.
+        </p>
+        <div class="mt-10">
+            <a href="#pricing-cards" class="btn-primary inline-block px-10 py-4 text-white font-bold rounded-lg text-lg transition-transform duration-300 hover:scale-105 bg-gradient-to-r from-indigo-500 to-cyan-500">
+                Lihat Semua Paket
+            </a>
+        </div>
+    </div>
 
-                <!-- Toggle Tagihan -->
-                <div class="flex justify-center items-center gap-4 mb-12 animate-on-scroll stagger-2">
-                    <span id="monthly-label" class="font-semibold text-white">Monthly</span>
-                    <label class="billing-toggle-switch">
-                        <input type="checkbox" id="billing-toggle">
-                        <span class="slider"></span>
-                    </label>
-                    <span id="annual-label" class="font-semibold text-slate-400">Annual</span>
-                    <span class="ml-2 px-3 py-1 text-xs font-bold text-emerald-300 bg-emerald-500/20 rounded-full">Save 25%</span>
-                </div>
+    <div class="w-full h-[400px] flex items-center justify-center animate-on-scroll stagger-1">
+        <div id="interactive-card-container">
+            <div class="showcase-card card-plus">
+                <div class="card-border-glow"></div>
+                <div class="card-logo">Vastar.ai</div>
+                <div class="card-plan">Plus</div>
+            </div>
+            <div class="showcase-card card-pro">
+                 <div class="card-border-glow"></div>
+                <div class="card-logo">Vastar.ai</div>
+                <div class="card-plan">Pro</div>
+            </div>
+            <div class="showcase-card card-ultra">
+                 <div class="card-border-glow"></div>
+                <div class="card-logo">Vastar.ai</div>
+                <div class="card-plan">Ultra</div>
+            </div>
+            <div class="showcase-card card-front">
+                <div class="card-border-glow"></div>
+                <div class="card-logo-front">Vastar.ai</div>
+                <div class="card-chip-front"></div>
+            </div>
+        </div>
+    </div>
+</div>
 
-                <!-- Kartu Harga -->
-                <!-- ▼▼▼ GANTI DENGAN BLOK KODE 5 PAKET HARGA INI ▼▼▼ -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 max-w-none mx-auto items-start">
+<div id="pricing-cards" class="flex justify-center items-center gap-4 mb-12 animate-on-scroll stagger-2">
+   
     
     <!-- FREE PLAN -->
     <div class="glass-card p-6 rounded-2xl flex flex-col h-full animate-on-scroll">
@@ -320,6 +551,90 @@
     </div>
 
 </div>
+
+<div class="text-center mt-16 animate-on-scroll">
+    <button id="toggle-comparison-btn" class="px-6 py-3 font-semibold text-white bg-slate-800 hover:bg-slate-700 rounded-lg transition-colors">
+        Show Plan Comparison
+    </button>
+</div>
+
+<section id="plan-comparison-section" class="hidden mt-12 animate-on-scroll">
+    <div class="overflow-x-auto">
+        <table class="w-full text-sm text-left text-slate-300">
+            <thead class="text-xs text-white uppercase bg-slate-800/50">
+                <tr>
+                    <th scope="col" class="px-6 py-4 rounded-tl-lg">Feature</th>
+                    <th scope="col" class="px-6 py-3 text-center">Free</th>
+                    <th scope="col" class="px-6 py-3 text-center">Basic</th>
+                    <th scope="col" class="px-6 py-3 text-center bg-indigo-500/10">Plus</th>
+                    <th scope="col" class="px-6 py-3 text-center">Pro</th>
+                    <th scope="col" class="px-6 py-3 text-center rounded-tr-lg">Ultra</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="border-b border-slate-800">
+                    <td class="px-6 py-4 font-semibold">Price (Monthly)</td>
+                    <td class="px-6 py-4 text-center">Free</td>
+                    <td class="px-6 py-4 text-center">IDR 50K</td>
+                    <td class="px-6 py-4 text-center bg-indigo-500/10 font-bold">IDR 100K</td>
+                    <td class="px-6 py-4 text-center">IDR 200K</td>
+                    <td class="px-6 py-4 text-center">IDR 300K</td>
+                </tr>
+                <tr class="border-b border-slate-800">
+                    <td class="px-6 py-4 font-semibold">Main AI Models</td>
+                    <td class="px-6 py-4 text-center">Basic</td>
+                    <td class="px-6 py-4 text-center">Medium</td>
+                    <td class="px-6 py-4 text-center bg-indigo-500/10 font-bold">Wide</td>
+                    <td class="px-6 py-4 text-center">Top</td>
+                    <td class="px-6 py-4 text-center">All</td>
+                </tr>
+                <tr class="border-b border-slate-800">
+                    <td class="px-6 py-4 font-semibold">Monthly Token Quota</td>
+                    <td class="px-6 py-4 text-center">5K</td>
+                    <td class="px-6 py-4 text-center">500K</td>
+                    <td class="px-6 py-4 text-center bg-indigo-500/10 font-bold">1M</td>
+                    <td class="px-6 py-4 text-center">1.5M</td>
+                    <td class="px-6 py-4 text-center">N/A</td>
+                </tr>
+                <tr class="border-b border-slate-800">
+                    <td class="px-6 py-4 font-semibold">RAG Cache (Personal)</td>
+                    <td class="px-6 py-4 text-center"><i data-lucide="x-circle" class="text-rose-500 mx-auto"></i></td>
+                    <td class="px-6 py-4 text-center">≤10MB</td>
+                    <td class="px-6 py-4 text-center bg-indigo-500/10 font-bold">≤100MB</td>
+                    <td class="px-6 py-4 text-center">≤100MB Inc.</td>
+                    <td class="px-6 py-4 text-center">Add on</td>
+                </tr>
+                <tr class="border-b border-slate-800">
+                    <td class="px-6 py-4 font-semibold">Collaboration</td>
+                    <td class="px-6 py-4 text-center"><i data-lucide="x-circle" class="text-rose-500 mx-auto"></i></td>
+                    <td class="px-6 py-4 text-center">Basic</td>
+                    <td class="px-6 py-4 text-center bg-indigo-500/10 font-bold">Full</td>
+                    <td class="px-6 py-4 text-center">Full</td>
+                    <td class="px-6 py-4 text-center">Full</td>
+                </tr>
+                 <tr class="border-b border-slate-800">
+                    <td class="px-6 py-4 font-semibold">Podcast Quality</td>
+                    <td class="px-6 py-4 text-center">N/A</td>
+                    <td class="px-6 py-4 text-center">Basic</td>
+                    <td class="px-6 py-4 text-center bg-indigo-500/10 font-bold">Pro</td>
+                    <td class="px-6 py-4 text-center">Advanced</td>
+                    <td class="px-6 py-4 text-center">Advanced</td>
+                </tr>
+                <tr class="border-b border-slate-800">
+                    <td class="px-6 py-4 font-semibold">Support Level</td>
+                    <td class="px-6 py-4 text-center">Forum</td>
+                    <td class="px-6 py-4 text-center">Email</td>
+                    <td class="px-6 py-4 text-center bg-indigo-500/10 font-bold">Priority Chat/Email</td>
+                    <td class="px-6 py-4 text-center">+Priority Phone</td>
+                    <td class="px-6 py-4 text-center">Priority Assist</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+
 <!-- ▲▲▲ AKHIR DARI BLOK PENGGANTI ▲▲▲ -->
             </div>
         </section>
@@ -379,76 +694,109 @@
     <script src="script.js"></script>
 
     <!-- Skrip tambahan khusus untuk halaman harga -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const toggle = document.getElementById('billing-toggle');
-            if (toggle) {
-                const monthlyLabel = document.getElementById('monthly-label');
-                const annualLabel = document.getElementById('annual-label');
-                const priceElements = document.querySelectorAll('[data-price-monthly]');
-                const periodElements = document.querySelectorAll('[data-period-monthly]');
-                // ▼▼▼ KODE UNTUK MENGONTROL POPUP ▼▼▼
-const modalOverlay = document.getElementById('promo-modal-overlay');
-const closeModalBtn = document.getElementById('close-modal-btn');
-const modalContent = document.getElementById('promo-modal-content');
+ <script>
+document.addEventListener('DOMContentLoaded', () => {
 
-// Fungsi untuk menampilkan popup
-const showModal = () => {
-    modalOverlay.style.display = 'flex';
-    setTimeout(() => {
-        modalOverlay.classList.add('visible');
-    }, 50); // Delay kecil agar transisi terlihat
-};
+    // --- 1. Fungsi untuk Inisialisasi Popup Promosi ---
+    function initPromoPopup() {
+        const modalOverlay = document.getElementById('promo-modal-overlay');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        if (!modalOverlay || !closeModalBtn) return;
 
-// Fungsi untuk menyembunyikan popup
-const hideModal = () => {
-    modalOverlay.classList.remove('visible');
-    setTimeout(() => {
-        modalOverlay.style.display = 'none';
-    }, 300); // Sesuaikan dengan durasi transisi CSS
-};
+        const showModal = () => {
+            modalOverlay.style.display = 'flex';
+            setTimeout(() => modalOverlay.classList.add('visible'), 50);
+        };
+        const hideModal = () => {
+            modalOverlay.classList.remove('visible');
+            setTimeout(() => modalOverlay.style.display = 'none', 300);
+        };
 
-// Tampilkan popup setelah 1.5 detik saat halaman dimuat
-setTimeout(showModal, 1500);
-
-// Event listener untuk tombol close
-closeModalBtn.addEventListener('click', hideModal);
-
-// Event listener untuk menutup saat klik di luar area modal
-modalOverlay.addEventListener('click', (event) => {
-    if (event.target === modalOverlay) {
-        hideModal();
-    }
-});
-
-                function updatePrices() {
-                    const isAnnual = toggle.checked;
-
-                    if (isAnnual) {
-                        annualLabel.classList.remove('text-slate-400');
-                        annualLabel.classList.add('text-white');
-                        monthlyLabel.classList.add('text-slate-400');
-                        monthlyLabel.classList.remove('text-white');
-                    } else {
-                        monthlyLabel.classList.remove('text-slate-400');
-                        monthlyLabel.classList.add('text-white');
-                        annualLabel.classList.add('text-slate-400');
-                        annualLabel.classList.remove('text-white');
-                    }
-
-                    priceElements.forEach(el => {
-                        el.innerText = isAnnual ? `Rp ${el.dataset.priceAnnual}` : `Rp ${el.dataset.priceMonthly}`;
-                    });
-
-                    periodElements.forEach(el => {
-                        el.innerText = isAnnual ? el.dataset.periodAnnual : el.dataset.periodMonthly;
-                    });
-                }
-
-                toggle.addEventListener('change', updatePrices);
-                updatePrices(); // Panggil saat memuat untuk status awal
-            }
+        setTimeout(showModal, 1500); // Tampilkan popup setelah 1.5 detik
+        closeModalBtn.addEventListener('click', hideModal);
+        modalOverlay.addEventListener('click', (event) => {
+            if (event.target === modalOverlay) hideModal();
         });
-    </script>
+    }
+
+    // --- 2. Fungsi untuk Inisialisasi Kartu Interaktif ---
+    function initInteractiveCard() {
+        const cardContainer = document.getElementById('interactive-card-container');
+        if (!cardContainer) return;
+
+        const proximityThreshold = 400;
+        const handleMouseMove = (e) => {
+            const rect = cardContainer.getBoundingClientRect();
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            const distance = Math.sqrt(Math.pow(mouseX - centerX, 2) + Math.pow(mouseY - centerY, 2));
+
+            cardContainer.classList.toggle('is-near', distance < proximityThreshold);
+
+            const rotateY = (mouseX - centerX) / 20;
+            const rotateX = -(mouseY - centerY) / 20;
+            cardContainer.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        };
+        const handleMouseLeave = () => {
+            cardContainer.classList.remove('is-near');
+            cardContainer.style.transform = 'rotateX(0deg) rotateY(0deg)';
+        };
+
+        document.addEventListener('mousemove', handleMouseMove);
+        document.body.addEventListener('mouseleave', handleMouseLeave);
+    }
+
+    // --- 3. Fungsi untuk Inisialisasi Tombol Perbandingan Paket ---
+    function initComparisonToggle() {
+        const toggleBtn = document.getElementById('toggle-comparison-btn');
+        const comparisonSection = document.getElementById('plan-comparison-section');
+        if (!toggleBtn || !comparisonSection) return;
+
+        toggleBtn.addEventListener('click', () => {
+            const isHidden = comparisonSection.classList.contains('hidden');
+            comparisonSection.classList.toggle('hidden');
+            toggleBtn.textContent = isHidden ? 'Hide Plan Comparison' : 'Show Plan Comparison';
+        });
+    }
+
+    // --- 4. Fungsi untuk Inisialisasi Toggle Tagihan (Bulanan/Tahunan) ---
+    function initBillingToggle() {
+        const toggle = document.getElementById('billing-toggle');
+        if (!toggle) return;
+        
+        const monthlyLabel = document.getElementById('monthly-label');
+        const annualLabel = document.getElementById('annual-label');
+        const priceElements = document.querySelectorAll('[data-price-monthly]');
+        const periodElements = document.querySelectorAll('[data-period-monthly]');
+
+        function updatePrices() {
+            const isAnnual = toggle.checked;
+            annualLabel.classList.toggle('text-white', isAnnual);
+            annualLabel.classList.toggle('text-slate-400', !isAnnual);
+            monthlyLabel.classList.toggle('text-white', !isAnnual);
+            monthlyLabel.classList.toggle('text-slate-400', isAnnual);
+
+            priceElements.forEach(el => {
+                el.innerText = isAnnual ? `Rp ${el.dataset.priceAnnual}` : `Rp ${el.dataset.priceMonthly}`;
+            });
+            periodElements.forEach(el => {
+                el.innerText = isAnnual ? el.dataset.periodAnnual : el.dataset.periodMonthly;
+            });
+        }
+
+        toggle.addEventListener('change', updatePrices);
+        updatePrices();
+    }
+
+    // --- Panggil semua fungsi inisialisasi ---
+    initPromoPopup();
+    initInteractiveCard();
+    initComparisonToggle();
+    initBillingToggle();
+
+});
+</script>
 </body>
 </html>
