@@ -1,94 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Vastar.ai</title>
+    <title>Hubungi Kami - Vastar.ai</title>
     
-    <!-- Aset Pihak Ketiga -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Gaya Kustom untuk Halaman Kontak -->
     <style>
-        /* [0] Pengaturan Dasar Halaman */
-        :root {
-            --bg-color: #020617;
-            --text-color: #e2e8f0;
-            --brand-indigo: #4f46e5;
-            --brand-cyan: #0891b2;
-            --highlight-color: #22d3ee;
-        }
+        /* [1] Gaya Dasar dan Latar Belakang Khas Vastar.ai */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            overflow-x: hidden;
+            background-color: #020617; /* slate-950 */
             background-image: 
                 repeating-linear-gradient(0deg,   rgba(156, 163, 175, 0.04), rgba(156, 163, 175, 0.04) 1px, transparent 1px, transparent 40px),
                 repeating-linear-gradient(60deg,  rgba(156, 163, 175, 0.04), rgba(156, 163, 175, 0.04) 1px, transparent 1px, transparent 40px),
                 repeating-linear-gradient(120deg, rgba(156, 163, 175, 0.04), rgba(156, 163, 175, 0.04) 1px, transparent 1px, transparent 40px);
+            min-height: 100vh;
         }
 
-        /* [1] Gaya Hero Section & Panel Kaca Interaktif */
-        #hero-container {
-            perspective: 1000px;
-        }
-
-        .highlight-text {
-            color: var(--highlight-color);
-            text-shadow: 0 0 25px rgba(34, 211, 238, 0.5);
-        }
-
-        .glowing-btn {
-            background-color: #0e7490; /* cyan-700 */
-            box-shadow: 0 0 15px 0 rgba(34, 211, 238, 0.4), 0 0 30px 0 rgba(34, 211, 238, 0.2);
-            transition: all 0.3s ease;
-        }
-        .glowing-btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 0 25px 5px rgba(34, 211, 238, 0.6), 0 0 45px 5px rgba(34, 211, 238, 0.4);
-        }
-        
-        /* [2] Gaya Formulir & Info Kontak */
-        .contact-card {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(51, 65, 85, 0.5);
-        }
-        .form-input {
-            background-color: #1e293b;
-            border: 1px solid #334155;
-            color: var(--text-color);
-            transition: all 0.2s ease-in-out;
-        }
-        .form-input:focus {
-            background-color: #0f172a;
-            border-color: var(--brand-indigo);
-            box-shadow: none;
-            outline: none;
-            --tw-ring-color: var(--brand-indigo);
-        }
-        .info-card {
-            background-color: #1e293b;
-            border: 1px solid #334155;
-            transition: all 0.3s ease;
-        }
-        .info-card:hover {
-            background-color: #334155;
-            border-color: var(--brand-indigo);
-            transform: translateY(-5px);
-        }
-        .info-icon-wrapper {
-            background-color: #334155;
-            color: #818cf8;
-        }
-
-        /* [3] Gaya Navigasi (diambil dari style.css asli untuk konsistensi) */
+        /* [2] Gaya Navigasi Melayang */
         .floating-island {
             background: rgba(2, 6, 23, 0.6); 
             backdrop-filter: blur(12px);
@@ -98,12 +33,85 @@
             box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
             padding: 8px 12px;
         }
+        .btn-primary {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -10px rgba(129, 140, 248, 0.4);
+        }
+
+        /* [3] Gaya Kartu Kaca & Formulir */
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(51, 65, 85, 0.5);
+        }
+        .form-input {
+            background-color: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(51, 65, 85, 0.8);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .form-input:focus {
+            background-color: #0f172a;
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.3);
+            outline: none;
+        }
+        .form-radio {
+            appearance: none;
+            width: 1.25rem; height: 1.25rem;
+            border: 2px solid rgba(100, 116, 139, 0.7);
+            border-radius: 50%;
+            transition: all 0.2s;
+            cursor: pointer;
+            position: relative;
+        }
+        .form-radio:checked {
+            border-color: #818cf8;
+        }
+        .form-radio:checked::after {
+            content: '';
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0.6rem; height: 0.6rem;
+            border-radius: 50%;
+            background-color: #818cf8;
+        }
+        .send-button {
+            transition: all 0.3s ease;
+        }
+        .send-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* [4] Gaya untuk Efek Spotlight Kursor */
+        #mouse-spotlight {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle,
+                rgba(79, 70, 229, 0.15) 0%,
+                rgba(2, 6, 23, 0) 70%
+            );
+            filter: blur(80px);
+            pointer-events: none;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            transition: transform 0.2s ease-out, opacity 0.4s ease;
+            z-index: 999;
+        }
     </style>
 </head>
-<body class="antialiased">
+<body class="text-gray-200 antialiased">
+    <div id="mouse-spotlight"></div>
 
-    <!-- Navigasi -->
-    <div class="fixed top-5 left-0 right-0 z-50 flex justify-center items-center gap-4 px-4">
+    <div class="fixed top-5 left-0 right-0 z-[1000] flex justify-center items-center gap-4 px-4">
         <nav class="floating-island flex items-center gap-8 py-3 px-6">
             <a href="index.html" class="flex items-center space-x-2">
                 <div class="w-10 h-10 flex items-center justify-center">
@@ -126,88 +134,123 @@
         </div>
     </div>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Hero Section Baru -->
-        <section class="min-h-screen flex items-center justify-center text-center px-4">
-    <div class="relative z-10">
-        <h1 class="text-6xl lg:text-8xl font-extrabold text-white tracking-tighter">
-            Let's Build The
-            <span class="highlight-text">Future.</span>
-        </h1>
-        <p class="mt-6 text-lg text-slate-300 max-w-2xl mx-auto">
-            Hubungi kami. Mari kita diskusikan bagaimana Vastar.ai dapat mengubah ide Anda menjadi kenyataan.
-        </p>
-        <div class="mt-10">
-            <a href="#contact-form" class="glowing-btn inline-block px-10 py-4 text-white font-bold rounded-lg text-lg transition-transform duration-300 hover:scale-105">
-                Mulai Percakapan
-            </a>
-        </div>
-    </div>
-</section>
+    <div class="container mx-auto px-4 py-24 sm:py-32">
         
-        <!-- Formulir & Info Kontak -->
-        <section id="contact-form" class="py-24">
-            <div class="container mx-auto px-4 max-w-6xl">
-                <div class="contact-card grid grid-cols-1 lg:grid-cols-5 gap-12 rounded-2xl p-10">
-                    <form class="space-y-6 lg:col-span-3">
-                        <h2 class="text-3xl font-bold text-white">Kirim Pesan Cepat</h2>
-                        <p class="text-slate-400">Tim kami akan merespons sesegera mungkin.</p>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div>
-                                <label for="name" class="block text-sm font-medium text-slate-300 mb-2">Nama</label>
-                                <input type="text" id="name" class="form-input w-full px-4 py-3 rounded-md focus:ring-2">
-                            </div>
-                             <div>
-                                <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Email</label>
-                                <input type="email" id="email" class="form-input w-full px-4 py-3 rounded-md focus:ring-2">
-                            </div>
+        <div class="text-center mb-12">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight">Hubungi Kami</h1>
+            <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">Punya pertanyaan atau ingin berkolaborasi? Kami siap mendengarkan.</p>
+        </div>
+
+        <div class="glass-card rounded-2xl shadow-2xl overflow-hidden max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-5">
+                <div class="md:col-span-2 bg-black/30 p-8 sm:p-12">
+                    <h2 class="text-3xl font-bold text-white mb-6">Informasi Kontak</h2>
+                    <p class="text-gray-300 mb-8">Isi formulir di samping atau hubungi kami melalui salah satu kanal berikut.</p>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4"><i data-lucide="mail" class="w-6 h-6 text-indigo-400 mt-1"></i><div><h3 class="font-semibold text-white">Email Kami</h3><a href="mailto:contact@vastar.ai" class="text-indigo-300 hover:text-indigo-200 transition">contact@vastar.ai</a></div></div>
+                        <div class="flex items-start space-x-4"><i data-lucide="map-pin" class="w-6 h-6 text-indigo-400 mt-1"></i><div><h3 class="font-semibold text-white">Kantor Pusat</h3><p class="text-gray-400">Vastar AI Tower, Jl. Jenderal Sudirman Kav. 52-53, Jakarta Selatan, 12190, Indonesia</p></div></div>
+                    </div>
+                    <div class="mt-12 pt-8 border-t border-white/10">
+                        <p class="font-semibold text-white mb-4">Temukan kami di:</p>
+                        <div class="flex space-x-5">
+                            <a href="#" class="text-gray-400 hover:text-white transition"><i data-lucide="twitter" class="w-6 h-6"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-white transition"><i data-lucide="instagram" class="w-6 h-6"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-white transition"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-white transition"><i data-lucide="github" class="w-6 h-6"></i></a>
                         </div>
-                        <div>
-                            <label for="subject" class="block text-sm font-medium text-slate-300 mb-2">Subjek</label>
-                            <input type="text" id="subject" class="form-input w-full px-4 py-3 rounded-md focus:ring-2">
-                        </div>
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-slate-300 mb-2">Pesan Anda</label>
-                            <textarea id="message" rows="5" class="form-input w-full px-4 py-3 rounded-md focus:ring-2"></textarea>
-                        </div>
-                        <button type="submit" class="w-full glowing-btn py-3 text-white font-bold rounded-lg">Kirim</button>
-                    </form>
-                    
-                    <div class="space-y-8 lg:col-span-2">
-                         <h2 class="text-3xl font-bold text-white">Info Kontak</h2>
-                         <p class="text-slate-400">Atau hubungi kami langsung.</p>
-                         <div class="info-card p-4 rounded-lg">
-                             <div class="info-icon-wrapper p-3 rounded-md"><i data-lucide="mail"></i></div>
-                             <div>
-                                 <h4 class="font-semibold text-white">Email</h4>
-                                 <a href="mailto:contact@vastar.ai" class="text-slate-300 hover:text-indigo-400">contact@vastar.ai</a>
-                             </div>
-                         </div>
-                         <div class="info-card p-4 rounded-lg">
-                             <div class="info-icon-wrapper p-3 rounded-md"><i data-lucide="phone"></i></div>
-                             <div>
-                                 <h4 class="font-semibold text-white">Telepon</h4>
-                                 <p class="text-slate-300">(022) 123-4567</p>
-                             </div>
-                         </div>
-                         <div class="info-card p-4 rounded-lg">
-                             <div class="info-icon-wrapper p-3 rounded-md"><i data-lucide="map-pin"></i></div>
-                             <div>
-                                 <h4 class="font-semibold text-white">Alamat</h4>
-                                 <p class="text-slate-300">Jl. Teknologi No. 1, Bandung</p>
-                             </div>
-                         </div>
                     </div>
                 </div>
+                <div class="md:col-span-3 p-8 sm:p-12">
+                    <form id="contactForm">
+                        <div class="grid sm:grid-cols-2 gap-6 mb-6">
+                            <div><label for="first-name" class="block text-sm font-medium text-gray-300 mb-2">Nama Depan</label><input type="text" name="first-name" id="first-name" required class="form-input w-full rounded-md py-2.5 px-4 text-white"></div>
+                            <div><label for="last-name" class="block text-sm font-medium text-gray-300 mb-2">Nama Belakang</label><input type="text" name="last-name" id="last-name" required class="form-input w-full rounded-md py-2.5 px-4 text-white"></div>
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-6 mb-6">
+                            <div><label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email</label><input type="email" name="email" id="email" required class="form-input w-full rounded-md py-2.5 px-4 text-white"></div>
+                            <div><label for="phone-number" class="block text-sm font-medium text-gray-300 mb-2">Nomor Telepon</label><input type="tel" name="phone-number" id="phone-number" class="form-input w-full rounded-md py-2.5 px-4 text-white" placeholder="+62 812-3456-7890"></div>
+                        </div>
+                        <div class="mb-6">
+                            <h3 class="text-sm font-medium text-gray-300 mb-4">Pilih Subjek</h3>
+                            <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+                                <label class="flex items-center space-x-3 cursor-pointer"><input type="radio" name="subject" value="product" class="form-radio" checked><span class="text-sm">Produk</span></label>
+                                <label class="flex items-center space-x-3 cursor-pointer"><input type="radio" name="subject" value="collaboration" class="form-radio"><span class="text-sm">Kolaborasi</span></label>
+                                <label class="flex items-center space-x-3 cursor-pointer"><input type="radio" name="subject" value="joint-venture" class="form-radio"><span class="text-sm">Joint Venture</span></label>
+                                <label class="flex items-center space-x-3 cursor-pointer"><input type="radio" name="subject" value="other" class="form-radio"><span class="text-sm">Lainnya</span></label>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Pesan</label>
+                            <textarea id="message" name="message" rows="5" required class="form-input w-full rounded-md py-2.5 px-4 text-white" placeholder="Tulis pesan Anda di sini..."></textarea>
+                        </div>
+                        <div class="text-right">
+                            <button type="submit" class="send-button inline-flex items-center justify-center rounded-md bg-indigo-600 px-8 py-3 text-base font-semibold text-white hover:bg-indigo-700">
+                                <span id="button-text">Kirim Pesan</span>
+                                <svg id="button-arrow" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </div>
 
-    <!-- Skrip Interaktif -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-           
+            // Fungsi untuk Mouse Spotlight
+            function initMouseSpotlight() {
+                const spotlight = document.getElementById('mouse-spotlight');
+                if (!spotlight) return;
+
+                document.body.addEventListener('mouseenter', () => {
+                    spotlight.style.opacity = '1';
+                });
+                document.body.addEventListener('mouseleave', () => {
+                    spotlight.style.opacity = '0';
+                });
+                window.addEventListener('mousemove', (e) => {
+                    spotlight.style.transform = `translate(${e.clientX - 300}px, ${e.clientY - 300}px)`;
+                });
+            }
+
+            // Fungsi untuk interaksi formulir sederhana
+            function initContactForm() {
+                const form = document.getElementById('contactForm');
+                if (!form) return;
+                
+                const submitButton = form.querySelector('button[type="submit"]');
+                const buttonText = document.getElementById('button-text');
+                const buttonArrow = document.getElementById('button-arrow');
+
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    buttonText.textContent = 'Mengirim...';
+                    submitButton.disabled = true;
+                    submitButton.classList.add('opacity-70', 'cursor-not-allowed');
+
+                    setTimeout(() => {
+                        buttonText.textContent = 'Pesan Terkirim!';
+                        submitButton.classList.remove('bg-indigo-600', 'hover:bg-indigo-700');
+                        submitButton.classList.add('bg-green-600');
+                        
+                        setTimeout(() => {
+                            form.reset();
+                            buttonText.textContent = 'Kirim Pesan';
+                            submitButton.disabled = false;
+                            submitButton.classList.remove('opacity-70', 'cursor-not-allowed', 'bg-green-600');
+                            submitButton.classList.add('bg-indigo-600', 'hover:bg-indigo-700');
+                        }, 2500);
+
+                    }, 1500);
+                });
+                
+                submitButton.addEventListener('mouseover', () => buttonArrow.style.transform = 'translateX(5px)');
+                submitButton.addEventListener('mouseout', () => buttonArrow.style.transform = 'translateX(0px)');
+            }
+
+            // Panggil semua fungsi inisialisasi
+            initMouseSpotlight();
+            initContactForm();
             lucide.createIcons();
         });
     </script>

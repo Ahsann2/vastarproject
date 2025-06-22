@@ -14,7 +14,10 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <link rel="stylesheet" href="style.css">
+
+    
 </head>
+
 <body class="antialiased">
     <div id="mouse-spotlight"></div>
 
@@ -75,7 +78,7 @@
                         Access leading multi-AI models like GPT-4o, Gemini 2.5 Pro, and Claude 3 within one intuitive platform. Complete your office tasks, college assignments, and creative projects faster and more efficiently than ever before.
                     </p>
                     <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4 animate-on-scroll stagger-2">
-                        <a href="https://stunning-blancmange-af1c45.netlify.app/" class="btn-primary w-full sm:w-auto px-8 py-4 text-white font-bold rounded-lg bg-gradient-to-r from-indigo-500 to-cyan-500">Web App</a>
+                        <button id="show-login-popup-btn" class="btn-primary w-full sm:w-auto px-8 py-4 text-white font-bold rounded-lg bg-gradient-to-r from-indigo-500 to-cyan-500">Web App</button>
                         <a href="https://stunning-blancmange-af1c45.netlify.app/" class="w-full sm:w-auto px-8 py-4 text-white font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 transition-colors">Dekstop & Mobile App</a>
                     </div>
                 </div>
@@ -218,98 +221,25 @@
                 </div>
             </div>
         </section>
-
-        <section id="pricing" class="py-24 bg-slate-900/50">
-            <div class="container mx-auto px-4">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white animate-on-scroll">Choose the Vastar.ai Plan That Fits Your Needs</h2>
-                    <p class="mt-4 text-slate-400 animate-on-scroll stagger-1">We offer a range of plans, from personal use to team and enterprise needs, all designed to deliver maximum value for your AI productivity journey.</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 max-w-7xl mx-auto">
-                    <div class="glass-card p-6 rounded-2xl flex flex-col animate-on-scroll">
-                        <h3 class="text-lg font-bold text-gradient">Free Trial</h3>
-                        <p class="text-slate-400 text-sm mt-1">For a quick start</p>
-                        <div class="my-6">
-                            <span class="text-3xl font-extrabold text-white">Free</span>
-                        </div>
-                        <ul class="space-y-3 text-slate-300 text-sm flex-grow">
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mr-2"></i>5k Token Quota</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mr-2"></i>Basic AI Models</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mr-2"></i>Forum Support</li>
-                        </ul>
-                        <a href="#" class="mt-6 w-full text-center py-2.5 px-4 text-indigo-300 font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 transition-colors">Start Free Trial</a>
-                    </div>
-                    
-                    <div class="glass-card p-6 rounded-2xl flex flex-col animate-on-scroll stagger-1">
-                        <h3 class="text-lg font-bold text-gradient">Basic</h3>
-                        <p class="text-slate-400 text-sm mt-1">For personal use</p>
-                        <div class="my-6">
-                            <span class="text-3xl font-extrabold text-white">Rp 50k</span>
-                            <span class="text-slate-400 text-sm">/mo</span>
-                        </div>
-                        <ul class="space-y-3 text-slate-300 text-sm flex-grow">
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mr-2"></i>1M Token Quota</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mr-2"></i>Medium AI Models</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mr-2"></i>10MB RAG Cache</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mr-2"></i>Email Support</li>
-                        </ul>
-                        <a href="#" class="mt-6 w-full text-center py-2.5 px-4 text-indigo-300 font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 transition-colors">Choose Basic</a>
-                    </div>
-
-                    <div class="relative p-6 rounded-2xl flex flex-col bg-gradient-to-b from-indigo-600/60 to-slate-900/60 border border-indigo-500 animate-on-scroll stagger-2" style="transform: scale(1.05);">
-                        <div class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2">
-                            <div class="bg-indigo-500 text-white px-3 py-1 text-xs font-bold rounded-full shadow-lg shadow-indigo-500/30">MOST POPULAR</div>
-                        </div>
-                        <h3 class="text-lg font-bold text-white">Standard</h3>
-                        <p class="text-slate-300 text-sm mt-1">For professionals</p>
-                         <div class="my-6">
-                            <span class="text-3xl font-extrabold text-white">Rp 100k</span>
-                            <span class="text-slate-300 text-sm">/mo</span>
-                        </div>
-                        <ul class="space-y-3 text-slate-200 text-sm flex-grow">
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-300 mr-2"></i>1M Token Quota</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-300 mr-2"></i>Wide AI Models</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-300 mr-2"></i>100MB RAG Cache</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-300 mr-2"></i>Full Collaboration</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-300 mr-2"></i>Priority Chat/Email Support</li>
-                        </ul>
-                        <a href="#" class="btn-primary mt-6 w-full text-center py-2.5 px-4 text-white font-semibold rounded-lg bg-white/10 hover:bg-white/20">Choose Standard</a>
-                    </div>
-
-                    <div class="glass-card p-6 rounded-2xl flex flex-col animate-on-scroll stagger-3">
-                        <h3 class="text-lg font-bold text-gradient">Advanced</h3>
-                        <p class="text-slate-400 text-sm mt-1">For power users</p>
-                        <div class="my-6">
-                            <span class="text-3xl font-extrabold text-white">Rp 200k</span>
-                            <span class="text-slate-400 text-sm">/mo</span>
-                        </div>
-                        <ul class="space-y-3 text-slate-300 text-sm flex-grow">
-                           <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mr-2"></i>1.5M Token Quota</li>
-                           <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mr-2"></i>Top AI Models</li>
-                           <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mr-2"></i>Advanced Podcast Quality</li>
-                           <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mr-2"></i>Priority Phone Support</li>
-                        </ul>
-                        <a href="#" class="mt-6 w-full text-center py-2.5 px-4 text-indigo-300 font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 transition-colors">Choose Advanced</a>
-                    </div>
-                    
-                    <div class="glass-card p-6 rounded-2xl flex flex-col animate-on-scroll stagger-4">
-                        <h3 class="text-lg font-bold text-gradient">PAYG</h3>
-                        <p class="text-slate-400 text-sm mt-1">For custom needs</p>
-                        <div class="my-6">
-                            <span class="text-3xl font-extrabold text-white">Usage-Based</span>
-                        </div>
-                        <ul class="space-y-3 text-slate-300 text-sm flex-grow">
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mr-2"></i>All AI Models</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mr-2"></i>RAG Pro Access</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mr-2"></i>Full Marketplace Access</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-cyan-400 mr-2"></i>Priority Assistance</li>
-                        </ul>
-                        <a href="#" class="mt-6 w-full text-center py-2.5 px-4 text-indigo-300 font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 transition-colors">Contact Sales</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <section id="cta-pricing" class="py-20 sm:py-24">
+    <div class="relative container mx-auto px-4 text-center">
+        <div class="absolute inset-x-0 top-1/2 -translate-y-1/2 -z-10">
+            <div class="mx-auto max-w-3xl h-64 bg-gradient-to-r from-indigo-600/30 via-purple-500/30 to-cyan-500/30 blur-3xl opacity-60"></div>
+        </div>
+        
+        <h2 class="text-3xl md:text-4xl font-bold text-white">
+            Starts at IDR 40K/month. Cancel at any time.
+        </h2>
+        <p class="mt-4 text-lg text-slate-300 max-w-2xl mx-auto">
+            Boost your productivity and build the project with a little help from AI today.
+        </p>
+        <div class="mt-4">
+            <a href="pricing.html" class="inline-block bg-slate-50 text-slate-900 font-bold px-8 py-4 rounded-lg hover:bg-white/90 transition-all text-lg shadow-lg shadow-white/5 hover:scale-80 transform">
+                Get started
+            </a>
+        </div>
+    </div>
+</section>
 
         <section id="faq" class="py-24">
             <div class="container mx-auto px-4 max-w-3xl">
@@ -323,7 +253,9 @@
                             <i data-lucide="chevron-down" class="faq-icon transition-transform duration-300"></i>
                         </div>
                         <div class="faq-answer text-slate-400">
+                            <div class="faq-answer-content">
                             <p>Vastar.ai is an All-In-One AI Productivity Partner designed to help professionals, students, and creators complete their tasks more efficiently. It integrates leading AI models like GPT-4o, Gemini, and Claude into one platform with features for writing, document analysis, podcasting, and more.</p>
+                            </div>
                         </div>
                     </div>
                     <div class="faq-item bg-slate-900 border border-slate-800 rounded-lg overflow-hidden">
@@ -332,7 +264,9 @@
                             <i data-lucide="chevron-down" class="faq-icon transition-transform duration-300"></i>
                         </div>
                         <div class="faq-answer text-slate-400">
+                            <div class="faq-answer-content">
                             <p>Vastar.ai is built for a wide range of users in Indonesia, including professionals who need to draft reports, students working on assignments, and content creators developing new material. Essentially, it's for anyone looking to boost their productivity with AI.</p>
+                            </div>
                         </div>
                     </div>
                      <div class="faq-item bg-slate-900 border border-slate-800 rounded-lg overflow-hidden">
@@ -341,7 +275,9 @@
                             <i data-lucide="chevron-down" class="faq-icon transition-transform duration-300"></i>
                         </div>
                         <div class="faq-answer text-slate-400">
+                            <div class="faq-answer-content">
                             <p>Absolutely. Our Document Analysis (RAG) feature allows you to upload your files (like PDF, DOCX) and interact with them. You can ask questions about the content, generate summaries, create FAQs, and extract key information securely.</p>
+                            </div>
                         </div>
                     </div>
                      <div class="faq-item bg-slate-900 border border-slate-800 rounded-lg overflow-hidden">
@@ -350,7 +286,9 @@
                             <i data-lucide="chevron-down" class="faq-icon transition-transform duration-300"></i>
                         </div>
                         <div class="faq-answer text-slate-400">
+                            <div class="faq-answer-content">
                             <p>We have a Fair Usage Policy in place. Depending on your plan, exceeding the quota may lead to reduced speeds or the option to purchase additional token packs. The PAYG (Pay-As-You-Go) plan is also available for users with variable or high-volume needs.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -405,6 +343,50 @@
                 </div>
             </div>
         </div>
+
+        <div id="auth-popup-overlay" class="hidden fixed inset-0 bg-slate-950/60 backdrop-blur-lg z-[100] flex items-center justify-center p-4">
+    <div id="auth-popup-content" class="relative w-full max-w-md bg-slate-900/70 border border-slate-700 rounded-2xl shadow-2xl p-8">
+        <button id="close-auth-popup-btn" class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors">
+            <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+
+        <div class="flex border-b border-slate-700 mb-6">
+            <button id="login-tab" class="auth-tab active-tab">Log In</button>
+            <button id="signup-tab" class="auth-tab">Sign Up</button>
+        </div>
+
+        <div>
+            <form id="login-form" class="space-y-6">
+                <div>
+                    <label for="login-email" class="block text-sm font-medium text-slate-300 mb-2">Email</label>
+                    <input type="email" id="login-email" class="form-input w-full px-4 py-3 rounded-md" required>
+                </div>
+                <div>
+                    <label for="login-password" class="block text-sm font-medium text-slate-300 mb-2">Password</label>
+                    <input type="password" id="login-password" class="form-input w-full px-4 py-3 rounded-md" required>
+                </div>
+                <button type="submit" class="w-full btn-primary py-3 text-white font-bold rounded-lg bg-gradient-to-r from-indigo-500 to-cyan-500">Log In</button>
+            </form>
+
+            <form id="signup-form" class="hidden space-y-6">
+                 <div>
+                    <label for="signup-name" class="block text-sm font-medium text-slate-300 mb-2">Nama Lengkap</label>
+                    <input type="text" id="signup-name" class="form-input w-full px-4 py-3 rounded-md" required>
+                </div>
+                <div>
+                    <label for="signup-email" class="block text-sm font-medium text-slate-300 mb-2">Email</label>
+                    <input type="email" id="signup-email" class="form-input w-full px-4 py-3 rounded-md" required>
+                </div>
+                <div>
+                    <label for="signup-password" class="block text-sm font-medium text-slate-300 mb-2">Password</label>
+                    <input type="password" id="signup-password" class="form-input w-full px-4 py-3 rounded-md" required>
+                </div>
+                <button type="submit" class="w-full btn-primary py-3 text-white font-bold rounded-lg bg-gradient-to-r from-indigo-500 to-cyan-500">Create Account</button>
+            </form>
+        </div>
+    </div>
+</div>
+        
     </footer>
 
     <script src="script.js"></script>
